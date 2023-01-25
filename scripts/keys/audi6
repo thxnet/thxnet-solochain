@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "audi",
+        "lunar slab casual enlist cabin hover patient afford north express copy excite//6//authority_discovery",
+        "0x46e15e34b6ba0a4094a87b7f2b3db15ff6432a369f6928278edf25e71fb4ca52"
+    ]
+}

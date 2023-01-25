@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "gran",
+        "lunar slab casual enlist cabin hover patient afford north express copy excite//1//grandpa",
+        "0xc0bc472a34ffca44275e95237fc6dba328f8826291cd5375cd72c5f4c1444f68"
+    ]
+}

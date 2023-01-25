@@ -1,0 +1,10 @@
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "method":"author_insertKey",
+    "params": [
+        "imol",
+        "lunar slab casual enlist cabin hover patient afford north express copy excite//4//im_online",
+        "0x6687b608a78ca96f9b7064ef4002eb9739b073549a3f90e1573e538df12fe326"
+    ]
+}

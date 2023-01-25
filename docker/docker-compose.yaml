@@ -1,0 +1,196 @@
+version: '3'
+
+services:
+  validator1:
+    container_name: validator1
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 30333:30333
+      - 9944:9944
+      - 9936:9936
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --validator
+        --state-pruning=archive
+        --blocks-pruning=archive
+        --node-key 593824a672cef22f3d115fe1cb8fdd94b1fd9437d280a7ac232154007bd14e24
+        --name validator1
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --base-path /data/validator1
+        --port 30333
+        --ws-port 9944
+        --rpc-port 9936
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
+
+  validator2:
+    container_name: validator2
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 30334:30334
+      - 9945:9945
+      - 9937:9937
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --validator
+        --state-pruning=archive
+        --blocks-pruning=archive
+        --node-key a1288f1215c5ca1a9127fff6ba969a396309d521af50d123e90bc81b425c6374
+        --name validator2
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --bootnodes /ip4/172.17.0.1/tcp/30333/p2p/12D3KooWDmdnBTAK7Rx1XViYgWNo11AHNwJkUnbefzxfeGVVG46w
+        --bootnodes /ip4/172.17.0.1/tcp/30335/p2p/12D3KooWFvzy2E2m227te8xVDajL5Y6cWkfzxRF1BfFQxBYqJ4m8
+        --bootnodes /ip4/172.17.0.1/tcp/30336/p2p/12D3KooWQk9uBGpUCmyVNNcFiuTqy358Jm8TZTcS8sVhFGwpSXAk
+        --bootnodes /ip4/172.17.0.1/tcp/30337/p2p/12D3KooWMkfFrcwBD9k3oiAPZn6oAEofE5yDHoVcRChyE22ufsNF
+        --base-path /data/validator2
+        --port 30334
+        --ws-port 9945
+        --rpc-port 9937
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
+
+  validator3:
+    container_name: validator3
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 30335:30335
+      - 9946:9946
+      - 9938:9938
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --validator
+        --node-key f4b8b5f6c611a30a6161627d8e8a2e3e71e0caf1f88111f38986c59a222f4c27
+        --name validator3
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --bootnodes /ip4/172.17.0.1/tcp/30333/p2p/12D3KooWDmdnBTAK7Rx1XViYgWNo11AHNwJkUnbefzxfeGVVG46w
+        --bootnodes /ip4/172.17.0.1/tcp/30334/p2p/12D3KooWNRMV2jE7AXPxcMdNw7phVC9r5ocWVDwKgnmFtjK2TKHZ
+        --bootnodes /ip4/172.17.0.1/tcp/30336/p2p/12D3KooWQk9uBGpUCmyVNNcFiuTqy358Jm8TZTcS8sVhFGwpSXAk
+        --bootnodes /ip4/172.17.0.1/tcp/30337/p2p/12D3KooWMkfFrcwBD9k3oiAPZn6oAEofE5yDHoVcRChyE22ufsNF
+        --base-path /data/validator3
+        --port 30335
+        --ws-port 9946
+        --rpc-port 9938
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
+
+  validator4:
+    container_name: validator4
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 30336:30336
+      - 9947:9947
+      - 9939:9939
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --validator
+        --node-key 79725e089a1bfddb3116234231527201cb3ef186df4e2f2cb2c39bbad263f605
+        --name validator4
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --bootnodes /ip4/172.17.0.1/tcp/30333/p2p/12D3KooWDmdnBTAK7Rx1XViYgWNo11AHNwJkUnbefzxfeGVVG46w
+        --bootnodes /ip4/172.17.0.1/tcp/30334/p2p/12D3KooWNRMV2jE7AXPxcMdNw7phVC9r5ocWVDwKgnmFtjK2TKHZ
+        --bootnodes /ip4/172.17.0.1/tcp/30335/p2p/12D3KooWFvzy2E2m227te8xVDajL5Y6cWkfzxRF1BfFQxBYqJ4m8
+        --bootnodes /ip4/172.17.0.1/tcp/30337/p2p/12D3KooWMkfFrcwBD9k3oiAPZn6oAEofE5yDHoVcRChyE22ufsNF
+        --base-path /data/validator4
+        --port 30336
+        --ws-port 9947
+        --rpc-port 9939
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
+
+  validator5:
+    container_name: validator5
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 30337:30337
+      - 9948:9948
+      - 9940:9940
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --validator
+        --node-key a2bf3fcccaa05055685e85ffb437564b73a64bc8eaad5aa000bdaa021170e19b
+        --name validator5
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --bootnodes /ip4/172.17.0.1/tcp/30333/p2p/12D3KooWDmdnBTAK7Rx1XViYgWNo11AHNwJkUnbefzxfeGVVG46w
+        --bootnodes /ip4/172.17.0.1/tcp/30334/p2p/12D3KooWNRMV2jE7AXPxcMdNw7phVC9r5ocWVDwKgnmFtjK2TKHZ
+        --bootnodes /ip4/172.17.0.1/tcp/30335/p2p/12D3KooWFvzy2E2m227te8xVDajL5Y6cWkfzxRF1BfFQxBYqJ4m8
+        --bootnodes /ip4/172.17.0.1/tcp/30336/p2p/12D3KooWQk9uBGpUCmyVNNcFiuTqy358Jm8TZTcS8sVhFGwpSXAk
+        --base-path /data/validator5
+        --port 30337
+        --ws-port 9948
+        --rpc-port 9940
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
+
+  archive1:
+    container_name: archive1
+    image: fstnjp/substrate:latest
+    restart: unless-stopped
+    ports:
+      - 31377:31377
+      - 19948:19948
+      - 19940:19940
+    volumes:
+      - ../data:/data
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: >
+      substrate
+        --chain="/data/customSpecRaw.json"
+        --state-pruning=archive
+        --blocks-pruning=archive
+        --node-key 7aad61fe0757e7aa122cd173267e57597401982a09e7cc99b7263379524bb1c4
+        --name archive1
+        --telemetry-url "ws://host.docker.internal:8001/submit 0"
+        --bootnodes /ip4/172.17.0.1/tcp/30333/p2p/12D3KooWDmdnBTAK7Rx1XViYgWNo11AHNwJkUnbefzxfeGVVG46w
+        --bootnodes /ip4/172.17.0.1/tcp/30334/p2p/12D3KooWNRMV2jE7AXPxcMdNw7phVC9r5ocWVDwKgnmFtjK2TKHZ
+        --bootnodes /ip4/172.17.0.1/tcp/30335/p2p/12D3KooWFvzy2E2m227te8xVDajL5Y6cWkfzxRF1BfFQxBYqJ4m8
+        --bootnodes /ip4/172.17.0.1/tcp/30336/p2p/12D3KooWQk9uBGpUCmyVNNcFiuTqy358Jm8TZTcS8sVhFGwpSXAk
+        --bootnodes /ip4/172.17.0.1/tcp/30337/p2p/12D3KooWMkfFrcwBD9k3oiAPZn6oAEofE5yDHoVcRChyE22ufsNF
+        --base-path /data/archive1
+        --port 31377
+        --ws-port 19948
+        --rpc-port 19940
+        --rpc-cors all
+        --ws-external
+        --rpc-external
+        --rpc-methods unsafe
