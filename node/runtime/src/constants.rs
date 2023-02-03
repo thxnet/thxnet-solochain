@@ -76,3 +76,29 @@ pub mod time {
 	pub const HOURS: BlockNumber = MINUTES * 60;
 	pub const DAYS: BlockNumber = HOURS * 24;
 }
+
+/// Fee-related.
+pub mod fee {
+	use crate::constants::currency::DOLLARS;
+	use frame_support::weights::{Weight, WeightToFee};
+	use sp_arithmetic::traits::{BaseArithmetic, SaturatedConversion, Unsigned};
+	use node_primitives::Balance;
+
+	pub const INDEX_DEPOSIT: Balance = 0 * DOLLARS;
+	pub const EXISTENTIAL_DEPOSIT: Balance = DOLLARS / 1000;
+	pub const EXTRINSIC_BASE_WEIGHT: Weight = Weight::zero();
+	pub const TRANSACTION_BYTE_FEE: Balance = 0u128;
+	pub const OPERATIONAL_FEE_MULTIPLIER: u8 = 0u8;
+
+	pub struct WeightToZeroFee<T>(sp_std::marker::PhantomData<T>);
+	impl<T> WeightToFee for WeightToZeroFee<T>
+	where
+		T: BaseArithmetic + From<u32> + Copy + Unsigned,
+	{
+		type Balance = T;
+
+		fn weight_to_fee(_weight: &Weight) -> Self::Balance {
+			Self::Balance::saturated_from(0u64)
+		}
+	}
+}

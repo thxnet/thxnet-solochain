@@ -25,6 +25,7 @@ static_assertions = "1.1.0"
 log = { version = "0.4.17", default-features = false }
 
 # primitives
+sp-arithmetic = { version = "6.0.0", default-features = false, git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 sp-authority-discovery = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 sp-consensus-babe = { version = "0.10.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 sp-block-builder = { git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02", default-features = false, version = "4.0.0-dev" }
