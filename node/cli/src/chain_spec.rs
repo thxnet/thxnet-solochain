@@ -28,7 +28,7 @@ use kitchensink_runtime::{
 };
 use pallet_im_online::sr25519::AuthorityId as ImOnlineId;
 use sc_chain_spec::ChainSpecExtension;
-use sc_service::ChainType;
+use sc_service::{ChainType, Properties};
 use sc_telemetry::TelemetryEndpoints;
 use serde::{Deserialize, Serialize};
 use sp_authority_discovery::AuthorityId as AuthorityDiscoveryId;
@@ -169,8 +169,8 @@ fn staging_testnet_config_genesis() -> GenesisConfig {
 
 	// generated with secret: subkey inspect "$secret"/fir
 	let root_key: AccountId = array_bytes::hex_n_into_unchecked(
-		// 5Ff3iXP75ruzroPWRP2FYBHWnmGGBSb63857BgnzCoXNxfPo
-		"9ee5e5bdc0ec239eb164f865ecc345ce4c88e76ee002e0f7e318097347471809",
+		// 5DRdwFbzV2TX4K6ZZkmJVviGX6BBtD2CWhUv4oAytZWdFKXV
+		"3c333012f29059536abd37dd570eab4425c07b39630c0c9b0829ee3933f8cc00",
 	);
 
 	let endowed_accounts: Vec<AccountId> = vec![root_key.clone()];
@@ -180,10 +180,15 @@ fn staging_testnet_config_genesis() -> GenesisConfig {
 
 /// Staging testnet config.
 pub fn staging_testnet_config() -> ChainSpec {
+	let mut properties = Properties::new();
+	properties.insert("tokenSymbol".into(), "XHTDEV".into());
+	properties.insert("tokenDecimals".into(), 10.into());
+	properties.insert("ss58Format".into(), 42.into());
+
 	let boot_nodes = vec![];
 	ChainSpec::from_genesis(
-		"Staging Testnet",
-		"staging_testnet",
+		"The Hybrid Network Testnet",
+		"thx_testnet",
 		ChainType::Live,
 		staging_testnet_config_genesis,
 		boot_nodes,
@@ -193,7 +198,7 @@ pub fn staging_testnet_config() -> ChainSpec {
 		),
 		None,
 		None,
-		None,
+		Some(properties),
 		Default::default(),
 	)
 }
@@ -289,13 +294,20 @@ pub fn testnet_genesis(
 
 	let num_endowed_accounts = endowed_accounts.len();
 
-	const ENDOWMENT: Balance = 10_000_000 * DOLLARS;
-	const STASH: Balance = ENDOWMENT / 1000;
+	const ENDOWMENT: Balance = 1_000_000 * DOLLARS;
+	const STASH: Balance = ENDOWMENT / 2;
 
 	GenesisConfig {
 		system: SystemConfig { code: wasm_binary_unwrap().to_vec() },
 		balances: BalancesConfig {
-			balances: endowed_accounts.iter().cloned().map(|x| (x, ENDOWMENT)).collect(),
+			balances: endowed_accounts.iter().cloned().map(|x| {
+				let balance = if x == root_key {
+					495_000_000 * DOLLARS
+				} else {
+					ENDOWMENT
+				};
+				(x, balance)
+			}).collect(),
 		},
 		indices: IndicesConfig { indices: vec![] },
 		session: SessionConfig {
@@ -312,7 +324,7 @@ pub fn testnet_genesis(
 		},
 		staking: StakingConfig {
 			validator_count: initial_authorities.len() as u32,
-			minimum_validator_count: initial_authorities.len() as u32,
+			minimum_validator_count: 1 as u32,
 			invulnerables: initial_authorities.iter().map(|x| x.0.clone()).collect(),
 			slash_reward_fraction: Perbill::from_percent(10),
 			stakers,
