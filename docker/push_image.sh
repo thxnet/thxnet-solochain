@@ -1,16 +1,16 @@
 #!/bin/bash
 set -e
 
-if [ "$#" -lt 1 ]; then
-	echo "Please provide the image ID!"
-	exit 1
-fi
+TAG=$1
 
-IMAGE_ID=$1
-TAG=$2
-if [ -z "$TAG" ]; then
+if [ "$#" -ne 1 ]; then
 	TAG="latest"
 fi
 
-docker tag $IMAGE_ID 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:$TAG
-docker push 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:$TAG
+GITUSER=257042641977.dkr.ecr.us-west-2.amazonaws.com
+GITREPO=thx_node
+
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 257042641977.dkr.ecr.us-west-2.amazonaws.com
+
+echo Push $GITUSER/$GITREPO:$TAG
+docker push $GITUSER/$GITREPO:$TAG

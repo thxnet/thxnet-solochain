@@ -9,8 +9,8 @@ cd $PROJECT_ROOT
 
 # Find the current version from Cargo.toml
 VERSION=`grep "^version" ./node/cli/Cargo.toml | egrep -o "([0-9\.]+)"`
-GITUSER=fstnjp
-GITREPO=substrate
+GITUSER=257042641977.dkr.ecr.us-west-2.amazonaws.com
+GITREPO=thx_node
 
 # Build the image
 echo "Building ${GITUSER}/${GITREPO}:latest docker image, hang on!"
