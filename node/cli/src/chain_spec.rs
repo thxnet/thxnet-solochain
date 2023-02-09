@@ -20,7 +20,7 @@
 
 use grandpa_primitives::AuthorityId as GrandpaId;
 use kitchensink_runtime::{
-	constants::currency::*, wasm_binary_unwrap, AuthorityDiscoveryConfig, BabeConfig,
+	constants::currency::*, get_root_id, wasm_binary_unwrap, AuthorityDiscoveryConfig, BabeConfig,
 	BalancesConfig, Block, CouncilConfig, DemocracyConfig, ElectionsConfig, GrandpaConfig,
 	ImOnlineConfig, IndicesConfig, MaxNominations, NominationPoolsConfig, SessionConfig,
 	SessionKeys, SocietyConfig, StakerStatus, StakingConfig, SudoConfig, SystemConfig,
@@ -168,10 +168,7 @@ fn staging_testnet_config_genesis() -> GenesisConfig {
 	];
 
 	// generated with secret: subkey inspect "$secret"/fir
-	let root_key: AccountId = array_bytes::hex_n_into_unchecked(
-		// 5DRdwFbzV2TX4K6ZZkmJVviGX6BBtD2CWhUv4oAytZWdFKXV
-		"3c333012f29059536abd37dd570eab4425c07b39630c0c9b0829ee3933f8cc00",
-	);
+	let root_key: AccountId = get_root_id();
 
 	let endowed_accounts: Vec<AccountId> = vec![root_key.clone()];
 

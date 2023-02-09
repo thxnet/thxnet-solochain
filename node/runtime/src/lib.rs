@@ -35,7 +35,7 @@ use frame_support::{
 		fungible::ItemOf, AsEnsureOriginWithArg, ConstBool, ConstU128, ConstU16, ConstU32,
 		Currency, EitherOfDiverse, EqualPrivilegeOnly, Everything, Imbalance, InstanceFilter,
 		KeyOwnerProofSystem, LockIdentifier, Nothing, OnUnbalanced, U128CurrencyToVote,
-		WithdrawReasons,
+		tokens::{ExistenceRequirement, WithdrawReasons},
 	},
 	weights::{
 		constants::{
@@ -152,6 +152,7 @@ pub fn native_version() -> NativeVersion {
 }
 
 type NegativeImbalance = <Balances as Currency<AccountId>>::NegativeImbalance;
+type PositiveImbalance = <Balances as Currency<AccountId>>::PositiveImbalance;
 
 pub struct DealWithFees;
 impl OnUnbalanced<NegativeImbalance> for DealWithFees {
@@ -166,6 +167,25 @@ impl OnUnbalanced<NegativeImbalance> for DealWithFees {
 			Treasury::on_unbalanced(split.0);
 			Author::on_unbalanced(split.1);
 		}
+	}
+}
+
+pub fn get_root_id() -> AccountId {
+	array_bytes::hex_n_into_unchecked(
+		// 5DRdwFbzV2TX4K6ZZkmJVviGX6BBtD2CWhUv4oAytZWdFKXV
+		"3c333012f29059536abd37dd570eab4425c07b39630c0c9b0829ee3933f8cc00",
+	)
+}
+
+pub struct PayoutAccount;
+impl OnUnbalanced<PositiveImbalance> for PayoutAccount {
+	fn on_nonzero_unbalanced(amount: PositiveImbalance) {
+		Balances::settle(
+			&get_root_id(),
+			amount,
+			WithdrawReasons::FEE,
+			ExistenceRequirement::KeepAlive
+		).ok();
 	}
 }
 
@@ -557,7 +577,7 @@ impl pallet_staking::Config for Runtime {
 	type RewardRemainder = Treasury;
 	type RuntimeEvent = RuntimeEvent;
 	type Slash = Treasury; // send the slashed funds to the treasury.
-	type Reward = (); // rewards are minted from the void
+	type Reward = PayoutAccount; // rewards are minted from the void
 	type SessionsPerEra = SessionsPerEra;
 	type BondingDuration = BondingDuration;
 	type SlashDeferDuration = SlashDeferDuration;
