@@ -177,11 +177,18 @@ pub fn get_root_id() -> AccountId {
 	)
 }
 
-pub struct PayoutAccount;
-impl OnUnbalanced<PositiveImbalance> for PayoutAccount {
+pub fn get_reward_id() -> AccountId {
+	array_bytes::hex_n_into_unchecked(
+		// 5D22dYGvG7ucZZBvFJRQQwKfSKK7LtuiUTshtC3UAukQz7RD
+		"2a31b1e8908eb70be0a2688991189bdf4dda1732a43bd73d1ed6482d40343839",
+	)
+}
+
+pub struct RewardAccount;
+impl OnUnbalanced<PositiveImbalance> for RewardAccount {
 	fn on_nonzero_unbalanced(amount: PositiveImbalance) {
 		Balances::settle(
-			&get_root_id(),
+			&get_reward_id(),
 			amount,
 			WithdrawReasons::FEE,
 			ExistenceRequirement::KeepAlive
@@ -577,7 +584,7 @@ impl pallet_staking::Config for Runtime {
 	type RewardRemainder = Treasury;
 	type RuntimeEvent = RuntimeEvent;
 	type Slash = Treasury; // send the slashed funds to the treasury.
-	type Reward = PayoutAccount; // rewards are minted from the void
+	type Reward = RewardAccount; // rewards are minted from the void
 	type SessionsPerEra = SessionsPerEra;
 	type BondingDuration = BondingDuration;
 	type SlashDeferDuration = SlashDeferDuration;

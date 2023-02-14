@@ -20,7 +20,8 @@
 
 use grandpa_primitives::AuthorityId as GrandpaId;
 use kitchensink_runtime::{
-	constants::currency::*, get_root_id, wasm_binary_unwrap, AuthorityDiscoveryConfig, BabeConfig,
+	constants::currency::*, get_root_id, get_reward_id, 
+	wasm_binary_unwrap, AuthorityDiscoveryConfig, BabeConfig,
 	BalancesConfig, Block, CouncilConfig, DemocracyConfig, ElectionsConfig, GrandpaConfig,
 	ImOnlineConfig, IndicesConfig, MaxNominations, NominationPoolsConfig, SessionConfig,
 	SessionKeys, SocietyConfig, StakerStatus, StakingConfig, SudoConfig, SystemConfig,
@@ -169,10 +170,11 @@ fn staging_testnet_config_genesis() -> GenesisConfig {
 
 	// generated with secret: subkey inspect "$secret"/fir
 	let root_key: AccountId = get_root_id();
+	let reward_key: AccountId = get_reward_id();
 
-	let endowed_accounts: Vec<AccountId> = vec![root_key.clone()];
+	let endowed_accounts: Vec<AccountId> = vec![root_key.clone(), reward_key.clone()];
 
-	testnet_genesis(initial_authorities, vec![], root_key, Some(endowed_accounts))
+	testnet_genesis(initial_authorities, vec![], root_key, Some(reward_key), Some(endowed_accounts))
 }
 
 /// Staging testnet config.
@@ -184,8 +186,8 @@ pub fn staging_testnet_config() -> ChainSpec {
 
 	let boot_nodes = vec![];
 	ChainSpec::from_genesis(
-		"The Hybrid Network Testnet",
-		"thx_testnet",
+		"THXNET. Testnet",
+		"thxnet_testnet",
 		ChainType::Live,
 		staging_testnet_config_genesis,
 		boot_nodes,
@@ -241,6 +243,7 @@ pub fn testnet_genesis(
 	)>,
 	initial_nominators: Vec<AccountId>,
 	root_key: AccountId,
+	reward_key: Option<AccountId>,
 	endowed_accounts: Option<Vec<AccountId>>,
 ) -> GenesisConfig {
 	let mut endowed_accounts: Vec<AccountId> = endowed_accounts.unwrap_or_else(|| {
@@ -298,11 +301,15 @@ pub fn testnet_genesis(
 		system: SystemConfig { code: wasm_binary_unwrap().to_vec() },
 		balances: BalancesConfig {
 			balances: endowed_accounts.iter().cloned().map(|x| {
-				let balance = if x == root_key {
-					495_000_000 * DOLLARS
-				} else {
-					ENDOWMENT
+				let balance = match x.clone() {
+					root if root == root_key =>
+						420_000_000 * DOLLARS,
+					reward if Some(reward.clone()) == reward_key =>
+						75_000_000 * DOLLARS,
+					_ =>
+						ENDOWMENT
 				};
+
 				(x, balance)
 			}).collect(),
 		},
@@ -388,6 +395,7 @@ fn development_config_genesis() -> GenesisConfig {
 		vec![],
 		get_account_id_from_seed::<sr25519::Public>("Alice"),
 		None,
+		None,
 	)
 }
 
@@ -412,6 +420,7 @@ fn local_testnet_genesis() -> GenesisConfig {
 		vec![authority_keys_from_seed("Alice"), authority_keys_from_seed("Bob")],
 		vec![],
 		get_account_id_from_seed::<sr25519::Public>("Alice"),
+		None,
 		None,
 	)
 }
@@ -444,6 +453,7 @@ pub(crate) mod tests {
 			vec![authority_keys_from_seed("Alice")],
 			vec![],
 			get_account_id_from_seed::<sr25519::Public>("Alice"),
+			None,
 			None,
 		)
 	}
