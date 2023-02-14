@@ -10,7 +10,7 @@ services:
       - 9944:9944
       - 9936:9936
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -40,7 +40,7 @@ services:
       - 9945:9945
       - 9937:9937
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -74,7 +74,7 @@ services:
       - 9946:9946
       - 9938:9938
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -106,7 +106,7 @@ services:
       - 9947:9947
       - 9939:9939
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -138,7 +138,7 @@ services:
       - 9948:9948
       - 9940:9940
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -170,7 +170,7 @@ services:
       - 19948:19948
       - 19940:19940
     volumes:
-      - ../data:/data
+      - /opt/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >

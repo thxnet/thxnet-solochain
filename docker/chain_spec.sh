@@ -7,11 +7,11 @@ PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
 docker run -ti --rm \
-    -v /opt/thx-network/data:/data \
+    -v /opt/nodes:/data \
     257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node bash -c 'substrate build-spec --disable-default-bootnode --chain staging > /data/customSpec.json'
 
 docker run -ti --rm \
-    -v /opt/thx-network/data:/data \
+    -v /opt/nodes:/data \
     257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node bash -c 'substrate build-spec --chain=/data/customSpec.json --raw --disable-default-bootnode > data/customSpecRaw.json'
 
 popd
