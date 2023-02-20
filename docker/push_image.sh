@@ -8,7 +8,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 GITUSER=257042641977.dkr.ecr.us-west-2.amazonaws.com
-GITREPO=thx_node
+GITREPO=thxnet-node
 
 aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 257042641977.dkr.ecr.us-west-2.amazonaws.com
 

@@ -3,14 +3,14 @@ version: '3'
 services:
   validator1:
     container_name: validator1
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30333:30333
       - 9944:9944
       - 9936:9936
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -33,14 +33,14 @@ services:
 
   validator2:
     container_name: validator2
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30334:30334
       - 9945:9945
       - 9937:9937
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -67,14 +67,14 @@ services:
 
   validator3:
     container_name: validator3
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30335:30335
       - 9946:9946
       - 9938:9938
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -99,14 +99,14 @@ services:
 
   validator4:
     container_name: validator4
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30336:30336
       - 9947:9947
       - 9939:9939
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -131,14 +131,14 @@ services:
 
   validator5:
     container_name: validator5
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30337:30337
       - 9948:9948
       - 9940:9940
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
@@ -163,14 +163,14 @@ services:
 
   archive1:
     container_name: archive1
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thx_node:latest
+    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 31377:31377
       - 19948:19948
       - 19940:19940
     volumes:
-      - /opt/nodes:/data
+      - /opt/data/nodes:/data
     extra_hosts:
       - host.docker.internal:host-gateway
     command: >
