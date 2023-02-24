@@ -793,20 +793,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "chain-spec-builder"
-version = "2.0.0"
-dependencies = [
- "ansi_term",
- "clap 4.1.4",
- "node-cli 3.0.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "rand 0.8.5",
- "sc-chain-spec",
- "sc-keystore",
- "sp-core",
- "sp-keystore",
-]
-
-[[package]]
 name = "chrono"
 version = "0.4.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3248,7 +3234,7 @@ dependencies = [
  "frame-system-rpc-runtime-api",
  "frame-try-runtime",
  "log",
- "node-primitives 2.0.0",
+ "node-primitives",
  "pallet-alliance",
  "pallet-asset-tx-payment",
  "pallet-assets",
@@ -3314,103 +3300,6 @@ dependencies = [
  "scale-info",
  "sp-api",
  "sp-arithmetic",
- "sp-authority-discovery",
- "sp-block-builder",
- "sp-consensus-babe",
- "sp-core",
- "sp-inherents",
- "sp-io",
- "sp-offchain",
- "sp-runtime",
- "sp-session",
- "sp-staking",
- "sp-std",
- "sp-transaction-pool",
- "sp-version",
- "static_assertions",
- "substrate-wasm-builder",
-]
-
-[[package]]
-name = "kitchensink-runtime"
-version = "3.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
-dependencies = [
- "frame-benchmarking",
- "frame-benchmarking-pallet-pov",
- "frame-election-provider-support",
- "frame-executive",
- "frame-support",
- "frame-system",
- "frame-system-benchmarking",
- "frame-system-rpc-runtime-api",
- "frame-try-runtime",
- "log",
- "node-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "pallet-alliance",
- "pallet-asset-tx-payment",
- "pallet-assets",
- "pallet-authority-discovery",
- "pallet-authorship",
- "pallet-babe",
- "pallet-bags-list",
- "pallet-balances",
- "pallet-bounties",
- "pallet-child-bounties",
- "pallet-collective",
- "pallet-contracts",
- "pallet-contracts-primitives",
- "pallet-conviction-voting",
- "pallet-democracy",
- "pallet-election-provider-multi-phase",
- "pallet-election-provider-support-benchmarking",
- "pallet-elections-phragmen",
- "pallet-fast-unstake",
- "pallet-grandpa",
- "pallet-identity",
- "pallet-im-online",
- "pallet-indices",
- "pallet-lottery",
- "pallet-membership",
- "pallet-message-queue",
- "pallet-mmr",
- "pallet-multisig",
- "pallet-nfts",
- "pallet-nis",
- "pallet-nomination-pools",
- "pallet-nomination-pools-benchmarking",
- "pallet-nomination-pools-runtime-api",
- "pallet-offences",
- "pallet-offences-benchmarking",
- "pallet-preimage",
- "pallet-proxy",
- "pallet-randomness-collective-flip",
- "pallet-ranked-collective",
- "pallet-recovery",
- "pallet-referenda",
- "pallet-remark",
- "pallet-root-testing",
- "pallet-scheduler",
- "pallet-session",
- "pallet-session-benchmarking",
- "pallet-society",
- "pallet-staking",
- "pallet-staking-reward-curve",
- "pallet-state-trie-migration",
- "pallet-sudo",
- "pallet-timestamp",
- "pallet-tips",
- "pallet-transaction-payment",
- "pallet-transaction-payment-rpc-runtime-api",
- "pallet-transaction-storage",
- "pallet-treasury",
- "pallet-uniques",
- "pallet-utility",
- "pallet-vesting",
- "pallet-whitelist",
- "parity-scale-codec",
- "scale-info",
- "sp-api",
  "sp-authority-discovery",
  "sp-block-builder",
  "sp-consensus-babe",
@@ -4498,12 +4387,12 @@ dependencies = [
  "fs_extra",
  "futures",
  "hash-db",
- "kitchensink-runtime 3.0.0-dev",
+ "kitchensink-runtime",
  "kvdb",
  "kvdb-rocksdb",
  "lazy_static",
  "log",
- "node-primitives 2.0.0",
+ "node-primitives",
  "node-testing",
  "parity-db",
  "rand 0.8.5",
@@ -4538,13 +4427,13 @@ dependencies = [
  "frame-system-rpc-runtime-api",
  "futures",
  "jsonrpsee",
- "kitchensink-runtime 3.0.0-dev",
+ "kitchensink-runtime",
  "log",
  "nix 0.26.2",
- "node-executor 3.0.0-dev",
- "node-inspect 0.9.0-dev",
- "node-primitives 2.0.0",
- "node-rpc 3.0.0-dev",
+ "node-executor",
+ "node-inspect",
+ "node-primitives",
+ "node-rpc",
  "pallet-asset-tx-payment",
  "pallet-assets",
  "pallet-balances",
@@ -4610,73 +4499,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "node-cli"
-version = "3.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
-dependencies = [
- "array-bytes",
- "clap 4.1.4",
- "clap_complete",
- "frame-benchmarking-cli",
- "frame-system",
- "frame-system-rpc-runtime-api",
- "futures",
- "jsonrpsee",
- "kitchensink-runtime 3.0.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "log",
- "node-executor 3.0.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "node-inspect 0.9.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "node-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "node-rpc 3.0.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "pallet-asset-tx-payment",
- "pallet-assets",
- "pallet-balances",
- "pallet-im-online",
- "pallet-transaction-payment",
- "parity-scale-codec",
- "rand 0.8.5",
- "sc-authority-discovery",
- "sc-basic-authorship",
- "sc-chain-spec",
- "sc-cli",
- "sc-client-api",
- "sc-consensus",
- "sc-consensus-babe",
- "sc-consensus-slots",
- "sc-executor",
- "sc-finality-grandpa",
- "sc-network",
- "sc-network-common",
- "sc-rpc",
- "sc-service",
- "sc-storage-monitor",
- "sc-sync-state-rpc",
- "sc-sysinfo",
- "sc-telemetry",
- "sc-transaction-pool",
- "sc-transaction-pool-api",
- "serde",
- "serde_json",
- "sp-api",
- "sp-authority-discovery",
- "sp-consensus",
- "sp-consensus-babe",
- "sp-core",
- "sp-finality-grandpa",
- "sp-inherents",
- "sp-io",
- "sp-keyring",
- "sp-keystore",
- "sp-runtime",
- "sp-timestamp",
- "sp-transaction-pool",
- "sp-transaction-storage-proof",
- "substrate-build-script-utils",
- "substrate-frame-cli",
- "try-runtime-cli",
-]
-
-[[package]]
 name = "node-executor"
 version = "3.0.0-dev"
 dependencies = [
@@ -4685,8 +4507,8 @@ dependencies = [
  "frame-support",
  "frame-system",
  "futures",
- "kitchensink-runtime 3.0.0-dev",
- "node-primitives 2.0.0",
+ "kitchensink-runtime",
+ "node-primitives",
  "node-testing",
  "pallet-balances",
  "pallet-contracts",
@@ -4713,43 +4535,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "node-executor"
-version = "3.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
-dependencies = [
- "frame-benchmarking",
- "kitchensink-runtime 3.0.0-dev (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "node-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
- "parity-scale-codec",
- "sc-executor",
- "scale-info",
- "sp-core",
- "sp-keystore",
- "sp-state-machine",
- "sp-tracing",
- "sp-trie",
-]
-
-[[package]]
 name = "node-inspect"
 version = "0.9.0-dev"
-dependencies = [
- "clap 4.1.4",
- "parity-scale-codec",
- "sc-cli",
- "sc-client-api",
- "sc-executor",
- "sc-service",
- "sp-blockchain",
- "sp-core",
- "sp-runtime",
- "thiserror",
-]
-
-[[package]]
-name = "node-inspect"
-version = "0.9.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
 dependencies = [
  "clap 4.1.4",
  "parity-scale-codec",
@@ -4776,57 +4563,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "node-primitives"
-version = "2.0.0"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
-dependencies = [
- "frame-system",
- "parity-scale-codec",
- "scale-info",
- "sp-application-crypto",
- "sp-core",
- "sp-runtime",
-]
-
-[[package]]
 name = "node-rpc"
 version = "3.0.0-dev"
 dependencies = [
  "jsonrpsee",
  "mmr-rpc",
- "node-primitives 2.0.0",
- "pallet-transaction-payment-rpc",
- "sc-chain-spec",
- "sc-client-api",
- "sc-consensus-babe",
- "sc-consensus-babe-rpc",
- "sc-consensus-epochs",
- "sc-finality-grandpa",
- "sc-finality-grandpa-rpc",
- "sc-rpc",
- "sc-rpc-api",
- "sc-rpc-spec-v2",
- "sc-sync-state-rpc",
- "sc-transaction-pool-api",
- "sp-api",
- "sp-block-builder",
- "sp-blockchain",
- "sp-consensus",
- "sp-consensus-babe",
- "sp-keystore",
- "sp-runtime",
- "substrate-frame-rpc-system",
- "substrate-state-trie-migration-rpc",
-]
-
-[[package]]
-name = "node-rpc"
-version = "3.0.0-dev"
-source = "git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02#129fee774a6d185d117a57fd1e81b3d0d05ad747"
-dependencies = [
- "jsonrpsee",
- "mmr-rpc",
- "node-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?tag=monthly-2023-02)",
+ "node-primitives",
  "pallet-transaction-payment-rpc",
  "sc-chain-spec",
  "sc-client-api",
@@ -4858,10 +4600,10 @@ dependencies = [
  "frame-system",
  "fs_extra",
  "futures",
- "kitchensink-runtime 3.0.0-dev",
+ "kitchensink-runtime",
  "log",
- "node-executor 3.0.0-dev",
- "node-primitives 2.0.0",
+ "node-executor",
+ "node-primitives",
  "pallet-asset-tx-payment",
  "pallet-assets",
  "pallet-transaction-payment",
@@ -9613,14 +9355,6 @@ dependencies = [
  "tokio",
  "url",
  "webrtc-util",
-]
-
-[[package]]
-name = "subkey"
-version = "2.0.2"
-dependencies = [
- "clap 4.1.4",
- "sc-cli",
 ]
 
 [[package]]

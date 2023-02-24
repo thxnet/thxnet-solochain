@@ -10,8 +10,6 @@ members = [
 	"node/rpc",
 	"node/runtime",
 	"node/testing",
-	"utils/chain-spec-builder",
-	"utils/subkey",
 ]
 
 # The list of dependencies below (which can be both direct and indirect dependencies) are crates
