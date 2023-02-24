@@ -12,9 +12,9 @@ type srtool
 unalias srtool ||
 cargo install --git https://github.com/chevdor/srtool-cli
 
-time srtool build --package kitchensink-runtime  --runtime-dir node/runtime .
+time srtool build --package thxnet-runtime  --runtime-dir node/runtime .
 mkdir -p -- target/runtime
-rsync -avh node/runtime/target/srtool/release/wbuild/kitchensink-runtime target/runtime
+rsync -avh node/runtime/target/srtool/release/wbuild/thxnet-runtime target/runtime
 rm -r node/runtime/target
 
 popd

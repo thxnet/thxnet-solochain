@@ -19,7 +19,7 @@
 //! Substrate chain configurations.
 
 use grandpa_primitives::AuthorityId as GrandpaId;
-use kitchensink_runtime::{
+use thxnet_runtime::{
 	constants::currency::*, get_root_id, get_reward_id, 
 	wasm_binary_unwrap, AuthorityDiscoveryConfig, BabeConfig,
 	BalancesConfig, Block, CouncilConfig, DemocracyConfig, ElectionsConfig, GrandpaConfig,
@@ -40,7 +40,7 @@ use sp_runtime::{
 	Perbill,
 };
 
-pub use kitchensink_runtime::GenesisConfig;
+pub use thxnet_runtime::GenesisConfig;
 pub use node_primitives::{AccountId, Balance, Signature};
 
 type AccountPublic = <Signature as Verify>::Signer;
@@ -355,7 +355,7 @@ pub fn testnet_genesis(
 		sudo: SudoConfig { key: Some(root_key) },
 		babe: BabeConfig {
 			authorities: vec![],
-			epoch_config: Some(kitchensink_runtime::BABE_GENESIS_EPOCH_CONFIG),
+			epoch_config: Some(thxnet_runtime::BABE_GENESIS_EPOCH_CONFIG),
 		},
 		im_online: ImOnlineConfig { keys: vec![] },
 		authority_discovery: AuthorityDiscoveryConfig { keys: vec![] },

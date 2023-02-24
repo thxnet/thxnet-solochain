@@ -21,7 +21,7 @@ tempfile = "3.1.0"
 frame-system = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 node-executor = { version = "3.0.0-dev", path = "../executor" }
 node-primitives = { version = "2.0.0", path = "../primitives" }
-kitchensink-runtime = { version = "3.0.0-dev", path = "../runtime" }
+thxnet-runtime = { version = "3.0.0-dev", path = "../runtime" }
 pallet-assets = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 pallet-asset-tx-payment = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
 pallet-transaction-payment = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }

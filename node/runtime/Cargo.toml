@@ -1,8 +1,8 @@
 [package]
-name = "kitchensink-runtime"
+name = "thxnet-runtime"
 version = "3.0.0-dev"
 authors = ["Parity Technologies <admin@parity.io>"]
-description = "Substrate node kitchensink runtime."
+description = "Substrate node thxnet runtime."
 edition = "2021"
 build = "build.rs"
 license = "Apache-2.0"
