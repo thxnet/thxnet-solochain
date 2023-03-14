@@ -15,36 +15,37 @@ targets = ["x86_64-unknown-linux-gnu"]
 [dependencies]
 codec = { package = "parity-scale-codec", version = "3.2.2" }
 scale-info = { version = "2.1.1", features = ["derive"] }
-frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
+frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
 node-primitives = { version = "2.0.0", path = "../primitives" }
 thxnet-runtime = { version = "3.0.0-dev", path = "../runtime" }
-sc-executor = { version = "0.10.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-core = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-keystore = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-state-machine = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-tracing = { version = "6.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-trie = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
+sc-executor = { version = "0.10.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-core = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-keystore = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-state-machine = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-tracing = { version = "6.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-trie = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
 
 [dev-dependencies]
 criterion = "0.4.0"
 futures = "0.3.21"
 wat = "1.0"
-frame-support = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-frame-system = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
+frame-support = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+frame-system = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
 node-testing = { version = "3.0.0-dev", path = "../testing" }
-pallet-balances = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-contracts = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-im-online = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-sudo = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-timestamp = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-treasury = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-transaction-payment = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-application-crypto = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-pallet-root-testing = { version = "1.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-consensus-babe = { version = "0.10.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-externalities = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-keyring = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
-sp-runtime = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-02" }
+pallet-balances = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-contracts = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-im-online = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-glutton = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-sudo = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-timestamp = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-treasury = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-transaction-payment = { version = "4.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-application-crypto = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+pallet-root-testing = { version = "1.0.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-consensus-babe = { version = "0.10.0-dev", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-externalities = { version = "0.13.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-keyring = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
+sp-runtime = { version = "7.0.0", git = "https://github.com/paritytech/substrate.git", tag = "monthly-2023-03" }
 
 [features]
 stress-test = []

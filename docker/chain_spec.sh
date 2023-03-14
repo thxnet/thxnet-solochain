@@ -12,6 +12,7 @@ docker run -ti --rm \
 
 docker run -ti --rm \
     -v /opt/data/nodes:/data \
-    257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node bash -c 'substrate build-spec --chain=/data/customSpec.json --raw --disable-default-bootnode > data/customSpecRaw.json'
+    257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node bash -c 'substrate build-spec --chain=/data/customSpec.json --raw --disable-default-bootnode > data/customSpec
+    json'
 
 popd
