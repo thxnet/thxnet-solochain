@@ -7,6 +7,12 @@ pushd .
 PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
+if ! [ -x "$(command -v cargo)" ]; then
+  echo 'Error: cargo is not installed.' >&2
+  popd
+  exit 1
+fi
+
 # Install srtool
 type srtool ||
 unalias srtool ||
