@@ -3,7 +3,7 @@ version: '3'
 services:
   validator1:
     container_name: validator1
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30333:30333
@@ -33,7 +33,7 @@ services:
 
   validator2:
     container_name: validator2
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30334:30334
@@ -67,7 +67,7 @@ services:
 
   validator3:
     container_name: validator3
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30335:30335
@@ -99,7 +99,7 @@ services:
 
   validator4:
     container_name: validator4
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30336:30336
@@ -131,7 +131,7 @@ services:
 
   validator5:
     container_name: validator5
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 30337:30337
@@ -163,7 +163,7 @@ services:
 
   archive1:
     container_name: archive1
-    image: 257042641977.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
+    image: 886360478228.dkr.ecr.us-west-2.amazonaws.com/thxnet-node:latest
     restart: unless-stopped
     ports:
       - 31377:31377

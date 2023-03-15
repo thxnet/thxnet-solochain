@@ -9,7 +9,7 @@ cd $PROJECT_ROOT
 
 # Find the current version from Cargo.toml
 VERSION=`grep "^version" ./node/cli/Cargo.toml | egrep -o "([0-9\.]+)"`
-GITUSER=257042641977.dkr.ecr.us-west-2.amazonaws.com
+GITUSER=886360478228.dkr.ecr.us-west-2.amazonaws.com
 GITREPO=thxnet-node
 
 # Build the image
