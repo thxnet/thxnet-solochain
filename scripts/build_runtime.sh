@@ -8,7 +8,7 @@ PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
 # Install srtool
-type srtool
+type srtool ||
 unalias srtool ||
 cargo install --git https://github.com/chevdor/srtool-cli
 
