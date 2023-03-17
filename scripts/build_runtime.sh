@@ -7,20 +7,14 @@ pushd .
 PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
-if ! [ -x "$(command -v cargo)" ]; then
-  echo 'Error: cargo is not installed.' >&2
-  popd
-  exit 1
+if ! [ -x "$(command -v srtool)" ]; then
+  echo 'Error: srtool is not installed.' >&2
+  cargo install --git https://github.com/chevdor/srtool-cli
 fi
 
-# Install srtool
-type srtool ||
-unalias srtool ||
-cargo install --git https://github.com/chevdor/srtool-cli
-
-time srtool build --package thxnet-runtime  --runtime-dir node/runtime .
+srtool pull
+time srtool build --root --package thxnet-runtime --runtime-dir node/runtime .
 mkdir -p -- target/runtime
 rsync -avh node/runtime/target/srtool/release/wbuild/thxnet-runtime target/runtime
-rm -r node/runtime/target
 
 popd
